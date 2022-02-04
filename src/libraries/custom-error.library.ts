@@ -6,4 +6,11 @@ export class CustomError extends Error {
 
     this.status = status;
   }
+
+  getError() {
+    return {
+      message: this.message,
+      status: this.status
+    };
+  }
 }

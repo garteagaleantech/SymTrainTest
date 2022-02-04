@@ -1,14 +1,15 @@
-import { NextFunction, Request, Response } from 'express';
+import { NextFunction, Request, RequestHandler, Response } from 'express';
 import { AuthService } from '../services/auth.service';
 import { HttpStatusCodes } from '@constants/index';
 
 export class AuthController {
   private readonly authService: AuthService;
+
   constructor() {
     this.authService = new AuthService();
   }
 
-  async create(req: Request, res: Response, next: NextFunction): Promise<void> {
+  create: RequestHandler = async (req, res, next) => {
     try {
       const { body } = req;
 
@@ -17,9 +18,9 @@ export class AuthController {
     } catch (error) {
       next(error);
     }
-  }
+  };
 
-  async login(req: Request, res: Response, next: NextFunction): Promise<void> {
+  login: RequestHandler = async (req, res, next) => {
     try {
       const { body } = req;
 
@@ -28,5 +29,5 @@ export class AuthController {
     } catch (error) {
       next(error);
     }
-  }
+  };
 }
