@@ -12,8 +12,17 @@ export class AuthService {
     this.authDao = new AuthDao();
   }
 
-  async save(user: CreateUser): Promise<User | null> {
-    return await this.authDao.save(user);
+  async save(user: CreateUser): Promise<SigupResponse> {
+    const newUser = await this.authDao.save({
+      ...user,
+      password: bcrypt.hashSync(user.password, 10)
+    });
+
+    return {
+      email: newUser.email,
+      name: newUser.name,
+      id: newUser.id
+    };
   }
 
   async login(credentials: Credentials): Promise<AuthLoginResponse> {

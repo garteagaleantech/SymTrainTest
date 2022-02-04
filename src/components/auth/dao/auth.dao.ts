@@ -1,8 +1,8 @@
 import { UserModel } from '@models/index';
 
 export class AuthDao {
-  async save(user: CreateUser): Promise<User | null> {
-    const newUser = new UserModel(user);
+  async save(user: CreateUser): Promise<User> {
+    const newUser = new UserModel(user as User);
     await newUser.save();
 
     return newUser.get();

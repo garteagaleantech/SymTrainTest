@@ -7,7 +7,7 @@ export class CustomError extends Error {
     this.status = status;
   }
 
-  getError() {
+  getError(): ErrorResponse {
     return {
       message: this.message,
       status: this.status

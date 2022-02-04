@@ -1,5 +1,5 @@
 type User = {
-  id?: number;
+  id: number;
   name: string;
   email: string;
   password: string;
@@ -13,3 +13,5 @@ type AuthLoginResponse = {
   token: string;
   expiresIn: number;
 };
+
+type SigupResponse = Omit<User, 'password'>;

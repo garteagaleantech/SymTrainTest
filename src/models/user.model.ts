@@ -1,11 +1,12 @@
 import { Model, DataTypes } from 'sequelize';
+import { RecipeModel } from './recipe.model';
 import { sequelize } from './sequelize';
 
 export class UserModel extends Model<User> {}
 UserModel.init(
   {
     id: {
-      type: DataTypes.BIGINT,
+      type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
       primaryKey: true
@@ -21,3 +22,7 @@ UserModel.init(
     timestamps: true
   }
 );
+
+UserModel.hasMany(RecipeModel, {
+  foreignKey: 'userId'
+});
