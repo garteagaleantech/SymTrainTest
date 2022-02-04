@@ -30,7 +30,8 @@ module.exports = {
         '@typescript-eslint/explicit-module-boundary-types': [RULES.WARN],
         '@typescript-eslint/no-this-alias': [RULES.WARN],
         '@typescript-eslint/no-non-null-assertion': [RULES.OFF],
-        '@typescript-eslint/array-type': [RULES.WARN, { default: 'generic' }]
+        '@typescript-eslint/array-type': [RULES.WARN, { default: 'generic' }],
+        '@typescript-eslint/no-unused-vars': RULES.OFF
       }
     }
   ],
