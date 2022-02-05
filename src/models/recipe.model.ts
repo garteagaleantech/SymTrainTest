@@ -29,5 +29,3 @@ RecipeModel.init(
     timestamps: true
   }
 );
-
-RecipeModel.belongsTo(UserModel);

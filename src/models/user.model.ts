@@ -26,3 +26,5 @@ UserModel.init(
 UserModel.hasMany(RecipeModel, {
   foreignKey: 'userId'
 });
+
+RecipeModel.belongsTo(UserModel);
