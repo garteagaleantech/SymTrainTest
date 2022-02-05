@@ -11,9 +11,9 @@ export class ProfileController {
 
   me: RequestHandler = async (req, res, next) => {
     try {
-      const { user } = req.body;
+      const { auth } = req;
 
-      const userFound = await this.profileService.getById(user.sub);
+      const userFound = await this.profileService.getById(auth!.sub);
 
       res.status(HttpStatusCodes.ok).send(userFound);
     } catch (error) {

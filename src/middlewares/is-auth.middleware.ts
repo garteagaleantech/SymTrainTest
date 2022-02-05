@@ -11,7 +11,7 @@ export const isAuthMiddleware: RequestHandler = (req, res, next) => {
       throw userErrors.unAuthorized();
     }
 
-    req.body.user = auth;
+    req.auth = auth;
 
     next();
   } catch (error) {

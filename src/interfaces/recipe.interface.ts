@@ -5,3 +5,7 @@ type Recipe = {
   image: string;
   description: string;
 };
+
+type CreateRecipe = Omit<Recipe, 'id'>;
+
+type UpdateRecipe = Recipe;

@@ -4,7 +4,7 @@ type AuthLoginResponse = {
 };
 
 type Authorization = {
-  sub: string;
+  sub: number;
   iat: number;
   exp: number;
 };

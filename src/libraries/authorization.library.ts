@@ -17,7 +17,7 @@ export const authorize = (user: User): AuthLoginResponse => {
 export const validateToken = (token: string): Authorization => {
   const auth = jwt.verify(token.replace('Bearer ', ''), config.jwt.secret, {
     algorithms: ['HS256']
-  }) as Authorization;
+  }) as unknown;
 
-  return auth;
+  return auth as Authorization;
 };
