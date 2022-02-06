@@ -2,7 +2,7 @@ import { Model, DataTypes } from 'sequelize';
 import { UserModel } from '.';
 import { sequelize } from './sequelize';
 
-export class RecipeModel extends Model<Recipe> {}
+export class RecipeModel extends Model<RecipeExtended> {}
 RecipeModel.init(
   {
     id: {
@@ -21,7 +21,7 @@ RecipeModel.init(
     },
     title: { type: DataTypes.STRING, allowNull: false },
     image: { type: DataTypes.TEXT, allowNull: false },
-    description: { type: DataTypes.STRING, allowNull: false }
+    description: { type: DataTypes.TEXT, allowNull: false }
   },
   {
     sequelize,

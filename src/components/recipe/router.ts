@@ -1,7 +1,8 @@
 import { Router } from 'express';
 import { isAuthMiddleware, validateSchemaMiddleware } from '@middlewares/index';
 import { RecipeController } from './controller/recipe.controller';
-import { recipeSchema } from './schemas/recipe.schema';
+import { createRecipeSchema } from './schemas/create-recipe.schema';
+import { updateRecipeSchema } from './schemas/update-recipe.schema';
 
 const recipeRouter = Router();
 const recipeController = new RecipeController();
@@ -9,8 +10,19 @@ const recipeController = new RecipeController();
 recipeRouter.post(
   '/',
   isAuthMiddleware,
-  validateSchemaMiddleware(recipeSchema),
+  validateSchemaMiddleware(createRecipeSchema),
   recipeController.create
 );
+
+recipeRouter.put(
+  '/',
+  isAuthMiddleware,
+  validateSchemaMiddleware(updateRecipeSchema),
+  recipeController.update
+);
+
+recipeRouter.get('/', isAuthMiddleware, recipeController.getAll);
+
+recipeRouter.get('/:id', isAuthMiddleware, recipeController.getOne);
 
 export default recipeRouter;

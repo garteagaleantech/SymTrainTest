@@ -7,14 +7,11 @@ export const isAuthMiddleware: RequestHandler = (req, res, next) => {
 
   try {
     const auth = validateToken(authorization!);
-    if (!auth) {
-      throw userErrors.unAuthorized();
-    }
 
     req.auth = auth;
 
     next();
   } catch (error) {
-    next(error);
+    throw userErrors.unAuthorized();
   }
 };
