@@ -69,4 +69,16 @@ export class RecipeController {
       next(error);
     }
   };
+
+  delete: RequestHandler = async (req, res, next) => {
+    try {
+      const { id } = req.params;
+
+      await this.recipeService.delete(parseInt(id));
+
+      res.status(HttpStatusCodes.ok).end();
+    } catch (error) {
+      next(error);
+    }
+  };
 }

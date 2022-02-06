@@ -33,4 +33,8 @@ export class RecipeService {
 
     return recipe;
   }
+
+  async delete(id: number): Promise<void> {
+    await this.recipeDao.delete(id);
+  }
 }

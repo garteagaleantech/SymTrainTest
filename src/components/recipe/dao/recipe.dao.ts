@@ -100,4 +100,12 @@ export class RecipeDao {
         : undefined
     };
   }
+
+  async delete(id: number): Promise<void> {
+    await RecipeModel.destroy({
+      where: {
+        id
+      }
+    });
+  }
 }

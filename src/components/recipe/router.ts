@@ -25,4 +25,6 @@ recipeRouter.get('/', isAuthMiddleware, recipeController.getAll);
 
 recipeRouter.get('/:id', isAuthMiddleware, recipeController.getOne);
 
+recipeRouter.delete('/:id', isAuthMiddleware, recipeController.delete);
+
 export default recipeRouter;

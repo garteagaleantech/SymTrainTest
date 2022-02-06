@@ -65,3 +65,5 @@ Then run the command:
 ```sh
 docker-compose up --build
 ```
+
+The server will be running on the URL: [http://localhost:8080](http://localhost:8080)
