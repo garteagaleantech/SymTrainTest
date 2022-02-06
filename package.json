@@ -6,7 +6,8 @@
   "scripts": {
     "postinstall": "npx husky install",
     "build": "tsc",
-    "start": "npm run compile && node dist/",
+    "start": "npm run migrate && npm run compile && node dist/",
+    "migrate": "npx sequelize-cli db:migrate",
     "compile": "shx rm -rf dist/ && tsc && npm run post:compile",
     "post:compile": "tscpaths -p tsconfig.json -s ./src -o ./dist --silent",
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules src/",
@@ -15,7 +16,7 @@
   },
   "type": "commonjs",
   "keywords": [],
-  "author": "Gerardo arteaga",
+  "author": "Gerardo Arteaga",
   "license": "ISC",
   "devDependencies": {
     "@baemingo/tscpaths-async": "0.0.15",
