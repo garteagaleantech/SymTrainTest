@@ -1,4 +1,4 @@
-# SymTrain Bakend
+# Recipe API (SymTrain test Backend)
 
 _Author: Gerardo Arteaga - garteaga@lean-tech.io_
 
