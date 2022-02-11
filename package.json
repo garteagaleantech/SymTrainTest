@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "npx husky install",
     "build": "tsc",
-    "start": "npm run migrate && npm run compile && node dist/",
+    "start": "npm run migrate && npm run compile && pm2-runtime dist/index.js -i 0",
     "migrate": "npx sequelize-cli db:migrate",
     "compile": "shx rm -rf dist/ && tsc && npm run post:compile",
     "post:compile": "tscpaths -p tsconfig.json -s ./src -o ./dist --silent",
@@ -48,6 +48,7 @@
     "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
+    "pm2": "^5.1.2",
     "sequelize": "^6.15.0",
     "sequelize-cli": "^6.4.1",
     "shx": "^0.3.4"
